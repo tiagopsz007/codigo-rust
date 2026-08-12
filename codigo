@@ -1,0 +1,113 @@
+use std::io;
+
+fn main() {
+    
+    /* declarando variaveis:
+    
+    let nome = "tiago";
+    let idade = 20;
+    let comida = "frango";
+    
+    println!("Hello, {} sua idade e: {} e vai comer {}", nome, idade, comida);
+
+    
+     for repetiçao:
+    
+    for i in 1..6{
+        println!("numero: {}", i)
+    }
+    
+    
+    
+     while em rust
+    
+    let mut contador = 0;
+        while contador <= 5 {
+            println!("contando: {}", contador);
+            contador +=1;
+        }
+        
+        
+         vec em rust
+        
+        let numeros = vec! [10, 20, 30, 40];
+        println!("{:?}", numeros);
+        
+        
+        
+         lista de nomes usando push
+        
+        let mut nomes = Vec::new(); // cria vetor vazio
+        nomes.push("tiago");
+        nomes.push("lucas");
+        nomes.push("roseno");
+        println!("{:?}", nomes)
+        
+        repeticao com array
+        
+        let frutas = vec!["maça", "banana", "uva"];
+        println!("primeira fruta: {}", frutas[0]);
+        println!("segunda fruta: {}", frutas[1]);
+        println!("terceira fruta: {}", frutas[2]);
+        
+        alterar numero no meio
+        
+        let mut numeros = vec![1,2,3];
+        numeros[1] = 67; // altera o valor da posiçao
+        println!("{:?}", numeros);
+        
+        
+        
+        let mut numeros = vec![10, 20, 30];
+        numeros.pop();// remove o ultimo
+        println!("{:?}", numeros)
+        
+        
+        
+        
+        let nomes = vec!["ana","bruno","carlos"];
+        for nome in &nomes {
+            println!("Ola, {}", nome);
+        }
+        
+    
+    
+        
+        let mut nomes = Vec::new();
+        nomes.push ("tiago");
+        nomes.push ("castrin");
+        nomes.push ("furin");
+        
+        for nome in &nomes{
+            println!("Ola, {}", nome)
+        }
+        */
+        
+        let mut nomes = Vec::new();
+
+    println!("Por favor, digite 3 nomes:");
+
+    for i in 1..=3 {
+        print!("Nome {}: ", i);
+        // É necessário garantir que o terminal exiba o print acima imediatamente
+        std::io::Write::flush(&mut std::io::stdout()).unwrap();
+
+        let mut input = String::new();
+        
+        // Lê a linha digitada pelo usuário
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Falha ao ler a entrada");
+
+        // Remove o '\n' (quebra de linha) do final da string
+        let nome_limpo = input.trim().to_string();
+
+        // Adiciona o nome ao vetor
+        nomes.push(nome_limpo);
+    }
+
+    println!("\n--- Nomes cadastrados ---");
+    for nome in &nomes {
+        println!("Ola, {}", nome);
+    }
+}
